@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <div class="menu container">
-        <h1>Cinepark 29.0</h1>
+        <h1>Cinepark 2.0</h1>
         <label for="menu">
           <img src="" class="menu-icono" alt="menu">
         </label>
@@ -85,5 +85,125 @@ export default {
     };
   }
 };
+
 </script>
 
+
+
+
+
+
+
+
+
+
+
+<style>
+
+.app {
+  background-color: rgb(0, 0, 0);
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+}
+
+.pie {
+  display: inline-block;
+  background-color: #8b0303;
+  color: rgb(251, 255, 0);
+  padding: 20px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  line-height: 80px;
+  color: rgb(0, 0, 0);
+  border-bottom: 3px dashed black;
+}
+
+.menu-icono {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 1;
+  padding: 1;
+}
+
+.estrenos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cartelera img {
+  width: 200px;
+  transition: transform 0.5s;
+  transform-origin: center;
+}
+
+.cartelera:hover img {
+  transform: rotateY(360deg);
+}
+
+.social {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.redes {
+  display: flex;
+  gap: 18rem;
+}
+
+.redes li {
+  text-decoration: none;
+  list-style: none;
+}
+
+
+h1 {
+  font-size: calc(20px + 4vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
+}
+
+a {
+  font-size: calc(10px + 2vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
+}
+
+
+
+
+</style>
