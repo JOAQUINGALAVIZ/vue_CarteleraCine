@@ -29,17 +29,15 @@
     <div class="social">
       <h2>Síguenos en nuestras redes sociales</h2>
       <ul class="redes">
-        <li><a href="https://www.facebook.com/"><img src="Imagenes_sociales/facebook.png" width="75" height="75"></a></li>
-        <li><a href="https://twitter.com/"><img src="Imagenes_sociales/twitter.png" width="75" height="75"></a></li>
-        <li><a href="https://www.youtube.com/"><img src="Imagenes_sociales/youtube.png" width="75" height="75"></a></li>
-        <li><a href="https://www.instagram.com/"><img src="Imagenes_sociales/instagram.png" width="75" height="75"></a></li>
+        <li><a href="https://www.facebook.com/"><img src="./img/facebook.png" width="75" height="75" alt="facebook"></a></li>
+        <li><a href="https://twitter.com/"><img src="./img/twitter.png" width="75" height="75" alt="twitter"></a></li>
+        <li><a href="https://www.youtube.com/"><img src="./img/youtube.png" width="75" height="75" alt="youtube"></a></li>
+        <li><a href="https://www.instagram.com/"><img src="./img/instagram.png" width="75" height="75" alt="instagram"></a></li>
       </ul>
     </div>
 
     <footer>
-      <ul class="pie">
-        <p>CinePark -- Todos los derechos reservados.</p>
-      </ul>
+      <p class="pie">CinePark -- Todos los derechos reservados.</p>
     </footer>
   </div>
 </template>
