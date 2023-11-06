@@ -59,11 +59,11 @@ export default {
         },
         {
           title: "LA LANGOSTA",
-          poster: "https://pics.filmaffinity.com/the_lobster-643891588-large.jpg"
+          poster: "https://peliculas.pub/img/uYbqRYPsHmWZFvaNJtP4FTV1Rzj6Hvo43vLoRmDdFvasFwe13wW4Hwo43vLoRmWfHUcEJp6URNJxbtoPHoWcX2WcXpECFzIPJvJqHG56PaWIcDWAHTZ8J8.jpg"
         },
         {
           title: "AVATAR",
-          poster: "https://pics.filmaffinity.com/avatar_the_way_of_water-722646748-large.jpg"
+          poster: "https://image.tmdb.org/t/p/original/yqayiDD4OFQkpDzny6NEDD1I3up.jpg"
         },
         {
           title: "BARBIE",
@@ -75,7 +75,7 @@ export default {
         },
         {
           title: "DUNGEONS OF DRAGON",
-          poster: "https://m.media-amazon.com/images/M/MV5BZWM5MTQ3NDMtNGFiMS00Y2E5LWE2ZTUtN73M5MTcyZjM3ODRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+          poster: "https://th.bing.com/th/id/R.6f486255a9a8be08601bc52a24782e3a?rik=ij5Q40%2b3aikENw&riu=http%3a%2f%2fwww.followingthenerd.com%2fsite%2fwp-content%2fuploads%2f2022%2f12%2ffollowing-the-nerd-dungeons-and-dragons-691x1024.jpg&ehk=XJQZD1yiVvW8fFhciFnTF13KbaHYxJWFElCgiwtyN2k%3d&risl=&pid=ImgRaw&r=0"
         },
         {
           title: "CARS",
