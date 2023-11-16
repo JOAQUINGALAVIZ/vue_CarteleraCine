@@ -3,7 +3,7 @@
     <!-- <router-link to="/peliculaUno">
       <img src="https://statics.cinemex.com/movie_posters/UxB4QhUZzWWfswb-750x1125.jpg" alt="JUSTICIERO" width="280" height="350" />
     </router-link> -->
-    <header class="header">
+    <header :class="{ 'header-hidden': hideHeader }" class="header" id="header">
       <div class="menu container">
         <h1>Cinepark 2.0</h1>
         <label for="menu">
@@ -20,16 +20,18 @@
       </div>
     </header>
 
-    <section class="estrenos">
+    <section :class="{ 'estrenos-hidden': hideEstrenos }" class="estrenos" id="estrenos">
       <div v-for="(movie, index) in movies" :key="index" class="peliculas">
         <router-link :to="'/pelicula-' + (index + 1)">
-          <img :src="movie.poster" :alt="movie.title" :title="movie.title" width="250" height="400" />
+          <img @click="cleanPage" :src="movie.poster" :alt="movie.title" :title="movie.title" width="250" height="400" />
         </router-link>
         <h3>{{ movie.title }}</h3>
       </div>
     </section>
 
-    <div class="social">
+    <router-view @hook:mounted="onComponentMounted"></router-view>
+
+    <div :class="{ 'social-hidden': hideSocial }" class="social" id="social">
       <h2>Síguenos en nuestras redes sociales</h2>
       <ul class="redes">
         <li><a href="https://www.facebook.com/"><img src="./img/facebook.png" width="75" height="75" alt="facebook"></a></li>
@@ -39,7 +41,7 @@
       </ul>
     </div>
 
-    <footer>
+    <footer :class="{ 'footer-hidden': hideFooter }" id="footer">
       <p class="pie">CinePark -- Todos los derechos reservados.</p>
     </footer>
   </div>
@@ -49,6 +51,11 @@
 export default {
   data() {
     return {
+      hideHeader: false,
+      hideEstrenos: false,
+      hideSocial: false,
+      hideFooter: false,
+
       movies: [
         {
           title: "JUSTICIERO",
@@ -84,6 +91,44 @@ export default {
         }
       ]
     };
+  },
+
+  methods:{
+    cleanPage(){
+      this.hideHeader = true;
+      this.hideEstrenos = true;
+      this.hideSocial = true;
+      this.hideFooter = true;
+    },
+
+    showPage() {
+      this.hideHeader = false;
+      this.hideEstrenos = false;
+      this.hideSocial = false;
+      this.hideFooter = false;
+    },
+
+    onComponentMounted() {
+      // Este gancho se ejecutará cuando se monte un componente
+      // Puedes agregar lógica adicional si es necesario
+      this.cleanPage();
+    }
+  },
+
+  watch: {
+    $route(to, from) {
+      // Se llama cuando cambia la ruta
+      if (from.name !== null) {
+        // Si venimos de otra ruta que no sea la de regresar atrás, muestra los elementos
+        this.showPage();
+      }
+    }
+  },
+
+  beforeRouteUpdate(to, from, next) {
+    // Restablecer el estado cuando se actualiza la ruta (por ejemplo, al regresar atrás)
+    this.showPage();
+    next();
   }
 };
 
@@ -205,6 +250,12 @@ a {
 }
 
 
-
+/* Agrega estilos de ocultar según sea necesario */
+.header-hidden,
+.estrenos-hidden,
+.social-hidden,
+.footer-hidden {
+  display: none;
+}
 
 </style>

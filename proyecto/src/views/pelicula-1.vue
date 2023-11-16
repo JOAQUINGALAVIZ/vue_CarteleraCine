@@ -12,7 +12,7 @@
   
         <div>
           <p>Sinopsis del Justiciero</p>
-          <p id="peliculasUno">
+          <p id="pelicula-1">
             Desde que abandonó su vida como asesino del gobierno, Robert McCall encuentra consuelo en servir justicia en nombre de los oprimidos. <br>
             Ahora vive en el sur de Italia y pronto descubre que sus nuevos amigos están bajo el control de los jefes criminales locales. <br>
             A medida que los acontecimientos se vuelven mortales, McCall se convierte en su protector al enfrentarse a la mafia.
