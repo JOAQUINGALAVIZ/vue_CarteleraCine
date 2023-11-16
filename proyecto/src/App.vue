@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!-- <router-link to="/peliculaUno">
+      <img src="https://statics.cinemex.com/movie_posters/UxB4QhUZzWWfswb-750x1125.jpg" alt="JUSTICIERO" width="280" height="350" />
+    </router-link> -->
     <header class="header">
       <div class="menu container">
         <h1>Cinepark 2.0</h1>
@@ -19,7 +22,7 @@
 
     <section class="estrenos">
       <div v-for="(movie, index) in movies" :key="index" class="peliculas">
-        <router-link :to="'/pelicula' + (index + 1)">
+        <router-link :to="'/pelicula-' + (index + 1)">
           <img :src="movie.poster" :alt="movie.title" :title="movie.title" width="250" height="400" />
         </router-link>
         <h3>{{ movie.title }}</h3>
