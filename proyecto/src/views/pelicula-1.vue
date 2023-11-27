@@ -32,11 +32,9 @@
   
   <script>
   export default {
-    // Aquí puedes agregar la lógica del componente si es necesaria
   };
   </script>
   
   <style>
-  /* Aquí puedes agregar estilos específicos para este componente */
   </style>
   
