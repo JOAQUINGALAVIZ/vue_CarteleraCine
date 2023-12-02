@@ -11,14 +11,19 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         genero: ''
     })
 
-    onMounted(async () => {
+    onMounted(async function(){
         const {data: {genres}} = await axios('https://api.themoviedb.org/3/genre/movie/list', options)
 
         generos.value = genres
     })
 
+    function obtenerPeliculas(){
+        console.log('Consultando API...');
+    }
+
     return {
         generos,
-        busqueda
+        busqueda,
+        obtenerPeliculas
     }
 })
