@@ -57,6 +57,7 @@
                     type="text"
                     class="p-3 w-full rounded-lg focus:outline-none"
                     placeholder="Nombre de tu pélicula"
+                    v-model="peliculas.busqueda.nombre"
                 >
             </div>
 
@@ -68,6 +69,7 @@
                 <select 
                     id="genero"
                     class="p-3 w-full rounded-lg focus:outline-none"
+                    v-model="peliculas.busqueda.genero"
 
                 >
                     <option value="">-- Seleccione --</option>
