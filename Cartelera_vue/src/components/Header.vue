@@ -6,7 +6,6 @@
 
   const route = useRoute()
   const peliculas = usePeliculasStore()
-
   const paginaInicio = computed(() => route.name === 'inicio')
 
 </script>
@@ -72,6 +71,11 @@
 
                 >
                     <option value="">-- Seleccione --</option>
+                    <option
+                        v-for="genero in peliculas.generos"
+                        :key="genero.name"
+                        :value="genero.name"
+                    >{{genero.name}}</option>
                 </select>
             </div>
 
