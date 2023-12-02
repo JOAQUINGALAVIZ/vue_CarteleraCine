@@ -1,7 +1,8 @@
 import {ref, reactive, onMounted} from 'vue'
 import {defineStore} from  'pinia'
-import axios from 'axios';
-import options from "@/stores/apiService";
+import apiService from '../services/apiService'
+
+
 
 export const usePeliculasStore = defineStore('peliculas', () => {
 
@@ -12,13 +13,15 @@ export const usePeliculasStore = defineStore('peliculas', () => {
     })
 
     onMounted(async function(){
-        const {data: {genres}} = await axios('https://api.themoviedb.org/3/genre/movie/list', options)
+        const {data: {genres}} = await apiService.obtenerGeneros()
+
 
         generos.value = genres
     })
 
     function obtenerPeliculas(){
         console.log('Consultando API...');
+
     }
 
     return {
