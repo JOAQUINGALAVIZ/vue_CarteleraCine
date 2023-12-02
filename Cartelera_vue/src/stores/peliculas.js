@@ -19,9 +19,11 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         generos.value = genres
     })
 
-    function obtenerPeliculas(){
-        console.log('Consultando API...');
+    const peliculas = ref([])
 
+    async function obtenerPeliculas(){
+        const {data: {results}} = await apiService.buscarPeliculas(busqueda)
+        peliculas.value = results
     }
 
     return {
