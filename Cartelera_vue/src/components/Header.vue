@@ -1,8 +1,12 @@
 <script setup>
   import {computed} from 'vue'
   import { RouterLink, useRoute} from 'vue-router'
+  import {usePeliculasStore} from '../stores/peliculas'
+
 
   const route = useRoute()
+  const peliculas = usePeliculasStore()
+
   const paginaInicio = computed(() => route.name === 'inicio')
 
 </script>
