@@ -8,10 +8,14 @@
   const peliculas = usePeliculasStore()
   const paginaInicio = computed(() => route.name === 'inicio')
 
+
   const handleSubmit = () => {
     // TODO: Validar
-
-    peliculas.obtenerPeliculas()
+    if (titulo.value === ''){
+      peliculas.obtenerListas()
+    } else{
+      peliculas.obtenerPeliculas()
+    }
   }
 
 </script>
@@ -58,13 +62,13 @@
             <div class="space-y-4">
                 <label 
                     class="block text-white uppercase font-extrabold text-lg"
-                    for="titulo">Busca tu pélicula
+                    for="titulo">Busca tu película
                 </label>
                 <input 
                     id="titulo"
                     type="text"
                     class="p-3 w-full rounded-lg focus:outline-none"
-                    placeholder="Nombre de tu pélicula"
+                    placeholder="Nombre de tu película"
                     v-model="peliculas.busqueda.nombre"
                 >
             </div>
@@ -72,20 +76,20 @@
             <div class="space-y-4">
                 <label 
                     class="block text-white uppercase font-extrabold text-lg"
-                    for="genero">Géneros
+                    for="lista">Listas
                 </label>
                 <select 
-                    id="genero"
+                    id="lista"
                     class="p-3 w-full rounded-lg focus:outline-none"
-                    v-model="peliculas.busqueda.genero"
+                    v-model="peliculas.busqueda.lista"
 
                 >
                     <option value="">-- Seleccione --</option>
                     <option
-                        v-for="genero in peliculas.generos"
-                        :key="genero.name"
-                        :value="genero.name"
-                    >{{genero.name}}</option>
+                        v-for="lista in peliculas.listas"
+                        :key="lista.id"
+                        :value="lista.id"
+                    >{{lista.name}}</option>
                 </select>
             </div>
 
