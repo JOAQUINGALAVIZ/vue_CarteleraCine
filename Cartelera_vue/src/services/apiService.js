@@ -6,6 +6,6 @@ export default {
     },
     buscarPeliculas({nombre}){
         return api(`/discover/movie?query=${nombre}`)
-    }
+    } 
 }
 

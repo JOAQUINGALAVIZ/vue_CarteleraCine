@@ -23,12 +23,14 @@ export const usePeliculasStore = defineStore('peliculas', () => {
 
     async function obtenerPeliculas(){
         const {data: {results}} = await apiService.buscarPeliculas(busqueda)
+        console.log(results)
         peliculas.value = results
     }
 
     return {
         generos,
         busqueda,
-        obtenerPeliculas
+        obtenerPeliculas,
+        peliculas
     }
 })
