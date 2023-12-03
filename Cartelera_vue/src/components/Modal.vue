@@ -51,7 +51,7 @@
                       Sipnosis
                     </DialogTitle>
 
-                    <div v-html="formatoSipnosis().outherHTML"></div>
+                    <div v-html="formatoSipnosis().outerHTML"></div>
 
                   </div>
                 </div>
