@@ -1,10 +1,12 @@
 import {ref, watch, onMounted} from 'vue'
 import { defineStore } from "pinia";
 import {usePeliculasStore} from './peliculas'
+import {useModalStore} from './modal'
 
 export const useFavoritosStore = defineStore('favoritos', () => {
 
     const peliculas  = usePeliculasStore()
+    const modal  = useModalStore()
     const favoritos = ref([])
 
     onMounted(() => {
@@ -41,6 +43,7 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         else{
             agregarFavorito()
         }
+        modal.modal = false
     }
 
     return {
