@@ -21,19 +21,18 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         localStorage.setItem('favoritos', JSON.stringify(favoritos.value))
     }
 
-    // function existeFavorito(id){
-    //     const favoritosLocalStorage = JSON.parse(localStorage.getItem('favoritos')) ?? []
-    //     return favoritosLocalStorage.some(favorito => favorito.pelicula.id === id )
-    // }
+    function existeFavorito(id){
+        const favoritosLocalStorage = JSON.parse(localStorage.getItem('favoritos')) ?? []
+        return favoritosLocalStorage.some(favorito => favorito.id === id )
+    }
 
     function handleClickFavorito() {
-        // if(existeFavorito(peliculas.pelicula.pelicula.id)){
-        //     console.log('Ya Existe...')
-        // }
-        // else{
-        //     favoritos.value.push(peliculas.pelicula)
-        // }
-        favoritos.value.push(peliculas.pelicula)
+        if(existeFavorito(peliculas.pelicula.id)){
+            console.log('Ya Existe...')
+        }
+        else{
+            favoritos.value.push(peliculas.pelicula)
+        }
     }
 
     return {
