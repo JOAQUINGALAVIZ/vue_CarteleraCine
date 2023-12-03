@@ -36,7 +36,7 @@ export const usePeliculasStore = defineStore('peliculas', () => {
 
             {
                 name: 'Proximos Lanzamientos',
-                id: 'upcomming'
+                id: 'upcoming'
             }
 
         ]

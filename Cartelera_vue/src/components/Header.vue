@@ -4,6 +4,7 @@
   import {usePeliculasStore} from '../stores/peliculas'
 
 
+
   const route = useRoute()
   const peliculas = usePeliculasStore()
   const paginaInicio = computed(() => route.name === 'inicio')
