@@ -1,15 +1,34 @@
 <script setup>
-    defineProps({
-        pelicula: {
-            type: Object
-        }
-    })
+import { defineProps } from 'vue';
+
+defineProps(['pelicula']);
+
+const getPosterURL = (posterPath) => {
+  const baseURL = "https://image.tmdb.org/t/p/";
+  return posterPath ? baseURL + "w500" + posterPath : null;
+};
 </script>
 
 <template>
-    <div>
-        <h2>{{ pelicula.title }}</h2>
+  <div class="border shadow-lg">
+    <div class="overflow-hidden">
+      <img
+          class="hover:scale-125 transition-transform hover:rotate-2"
+          :src="getPosterURL(pelicula.poster_path)"
+          :alt="'Poster de ' + pelicula.title"
+      />
     </div>
+
+    <div class="p-5">
+      <h2 class="text-2xl truncate font-extrabold">{{ pelicula.title }}</h2>
+      <button
+        type="button"
+        class="bg-red-700 mt-5 w-full p-3 font-bold text-white text-lg hover:bg-red-900"
+      >
+        Ver Sipnosis
+      </button>
+    </div>
+  </div>
 </template>
 
 
