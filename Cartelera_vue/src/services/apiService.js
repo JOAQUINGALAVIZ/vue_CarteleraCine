@@ -12,7 +12,7 @@ export default {
         return api(`/search/movie?query=${nombre}`)
     },
     buscarPelicula(id){
-        return api(`/movie/${id}`)
+        return api(`/movie/${id}?language=es`)
     }
 }
 

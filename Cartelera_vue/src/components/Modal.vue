@@ -7,6 +7,11 @@
     const modal = useModalStore()
     const peliculas = usePeliculasStore()
 
+    const getPosterURL = (posterPath) => {
+      const baseURL = "https://image.tmdb.org/t/p/";
+      return posterPath ? baseURL + "w500" + posterPath : null;
+    };
+
 </script>
 
 <template>
@@ -21,7 +26,15 @@
               <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6" >
                 <div>
                   <div class="mt-3">
+                    <DialogTitle as="h3" class="text-gray-900 text-4xl font-extrabold my-5">
+                        {{peliculas.pelicula.title}}
 
+                    </DialogTitle>
+
+                    <img
+                      :src="getPosterURL(peliculas.pelicula.poster_path)"
+                      :alt="'Poster de ' + peliculas.pelicula.title"
+                    />
 
 
                   </div>

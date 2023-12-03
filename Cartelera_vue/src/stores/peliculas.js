@@ -1,22 +1,23 @@
 import {ref, reactive, onMounted} from 'vue'
 import {defineStore} from  'pinia'
 import apiService from '../services/apiService'
-
+import {useModalStore} from './modal'
 
 
 
 export const usePeliculasStore = defineStore('peliculas', () => {
 
 
-
+    const modal = useModalStore()
     const listas = ref([])
     const busqueda = reactive({
         nombre: '',
         lista: ''
     })
 
+    const pelicula = ref({})
+
     onMounted(async function (){
-        // const {data: {genres}} = await apiService.obtenerGeneros()
         listas.value = [
             {
                 name: 'Vistas Actualmente',
@@ -61,7 +62,9 @@ export const usePeliculasStore = defineStore('peliculas', () => {
 
     async function seleccionarPeliculas(id){
         const data = await apiService.buscarPelicula(id)
-        console.log(data)
+        pelicula.value = data.data
+
+        modal.handleClickModal()
     }
 
     return {
@@ -70,6 +73,7 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         obtenerListas,
         obtenerPeliculas,
         peliculas,
-        seleccionarPeliculas
+        seleccionarPeliculas,
+        pelicula
     }
 })
