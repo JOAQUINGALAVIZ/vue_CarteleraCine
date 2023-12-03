@@ -12,6 +12,17 @@
       return posterPath ? baseURL + "w500" + posterPath : null;
     };
 
+    const formatoSipnosis = () => {
+      const sipnosisPelicula = document.createElement('DIV')
+      const sipnosis = peliculas.pelicula.overview
+      const sipnosisParrafo = document.createElement('P')
+      sipnosisParrafo.classList.add('text-lg')
+      sipnosisParrafo.textContent = sipnosis
+      sipnosisPelicula.appendChild(sipnosisParrafo)
+
+      return sipnosisPelicula
+    }
+
 </script>
 
 <template>
@@ -36,6 +47,11 @@
                       :alt="'Poster de ' + peliculas.pelicula.title"
                     />
 
+                    <DialogTitle as="h3" class="text-gray-900 text-4xl font-extrabold my-5">
+                      Sipnosis
+                    </DialogTitle>
+
+                    <div v-html="formatoSipnosis().outherHTML"></div>
 
                   </div>
                 </div>
