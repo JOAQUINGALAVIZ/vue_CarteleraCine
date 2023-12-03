@@ -16,7 +16,7 @@
       const sipnosisPelicula = document.createElement('DIV')
       const sipnosis = peliculas.pelicula.overview
       const sipnosisParrafo = document.createElement('P')
-      sipnosisParrafo.classList.add('text-lg')
+      sipnosisParrafo.classList.add('text-lg', 'text-gray-500')
       sipnosisParrafo.textContent = sipnosis
       sipnosisPelicula.appendChild(sipnosisParrafo)
 
@@ -28,7 +28,7 @@
       console.log(peliculas.pelicula.genres[1].name);
       for (let i = 0; i < peliculas.pelicula.genres.length; i++){
         const generoPelicula = document.createElement('P')
-        generoPelicula.classList.add('text-lg')
+        generoPelicula.classList.add('text-lg', 'text-gray-500')
         generoPelicula.textContent = peliculas.pelicula.genres[i].name
         generosPeliculaDiv.appendChild(generoPelicula)
       }
@@ -58,6 +58,7 @@
                     <img
                       :src="getPosterURL(peliculas.pelicula.poster_path)"
                       :alt="'Poster de ' + peliculas.pelicula.title"
+                      class="mx-auto w-96"
                     />
 
                     <DialogTitle as="h3" class="text-gray-900 text-4xl font-extrabold my-5">
