@@ -5,10 +5,7 @@ import apiService from '../services/apiService'
 
 export const usePeliculasStore = defineStore('peliculas', () => {
 
-    let currentPage = 1;
-    function setCurrentPage(newPage){
-        currentPage = newPage;
-    }
+
 
     const listas = ref([])
     const busqueda = reactive({
@@ -40,12 +37,7 @@ export const usePeliculasStore = defineStore('peliculas', () => {
             }
 
         ]
-        // const lista = document.getElementById('lista');
-        // const data = await apiService.obtenerListas(lista.option.value, currentPage)
-        // console.log(data);
 
-
-        // generos.value = genres
     })
 
 
@@ -67,8 +59,6 @@ export const usePeliculasStore = defineStore('peliculas', () => {
     }
 
     return {
-        currentPage,
-        setCurrentPage,
         listas,
         busqueda,
         obtenerListas,

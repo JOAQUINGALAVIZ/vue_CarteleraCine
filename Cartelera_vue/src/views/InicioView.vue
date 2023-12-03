@@ -12,7 +12,7 @@ const peliculas = usePeliculasStore()
     <Pelicula
         v-for="pelicula in peliculas.peliculas"
         :pelicula="pelicula"
-        :key="pelicula.title"
+        :key="pelicula.id"
     />
   </div>
 </template>
