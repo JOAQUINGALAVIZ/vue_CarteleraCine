@@ -57,6 +57,7 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         peliculas.value = results
     }
 
+
     return {
         listas,
         busqueda,
