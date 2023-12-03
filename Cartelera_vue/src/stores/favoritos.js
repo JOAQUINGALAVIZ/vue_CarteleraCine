@@ -21,17 +21,25 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         localStorage.setItem('favoritos', JSON.stringify(favoritos.value))
     }
 
-    function existeFavorito(id){
+    function existeFavorito(){
         const favoritosLocalStorage = JSON.parse(localStorage.getItem('favoritos')) ?? []
-        return favoritosLocalStorage.some(favorito => favorito.id === id )
+        return favoritosLocalStorage.some(favorito => favorito.id === peliculas.pelicula.id )
+    }
+
+    function eliminarFavorito() {
+        favoritos.value = favoritos.value.filter( favorito => favorito.id !== peliculas.pelicula.id )
+    }
+
+    function agregarFavorito() {
+        favoritos.value.push(peliculas.pelicula)
     }
 
     function handleClickFavorito() {
-        if(existeFavorito(peliculas.pelicula.id)){
-            console.log('Ya Existe...')
+        if(existeFavorito()){
+            eliminarFavorito()
         }
         else{
-            favoritos.value.push(peliculas.pelicula)
+            agregarFavorito()
         }
     }
 
