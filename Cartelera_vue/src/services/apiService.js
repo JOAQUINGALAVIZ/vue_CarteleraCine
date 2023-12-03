@@ -8,7 +8,8 @@ export default {
         return api(`/movie/${lista}?language=es`)
     },
     buscarPeliculas({nombre}){
-        return api(`/discover/movie?query=${nombre}`)
+        console.log(nombre);
+        return api(`/search/movie?query=${nombre}`)
     } 
 }
 

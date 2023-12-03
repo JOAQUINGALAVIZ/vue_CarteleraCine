@@ -13,8 +13,10 @@
   const handleSubmit = () => {
   if (peliculas.busqueda.nombre === '') {
     peliculas.obtenerListas()
+    console.log("se ejecuta listas");
   } else {
     peliculas.obtenerPeliculas()
+    console.log("se ejecuta peliculas");
   }
 }
 

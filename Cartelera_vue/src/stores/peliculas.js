@@ -46,14 +46,13 @@ export const usePeliculasStore = defineStore('peliculas', () => {
 
         const {data: {results}} = await apiService.obtenerListas(busqueda)
         peliculas.value = results
-        console.log(currentPage);
 
     }
 
 
-
     async function obtenerPeliculas(){
         const {data: {results}} = await apiService.buscarPeliculas(busqueda)
+        console.log(busqueda.nombre);
         console.log(results)
         peliculas.value = results
     }
