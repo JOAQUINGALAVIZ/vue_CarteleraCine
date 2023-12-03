@@ -1,4 +1,4 @@
-import {ref, reactive, onMounted} from 'vue'
+import {ref, reactive, onMounted, computed} from 'vue'
 import {defineStore} from  'pinia'
 import apiService from '../services/apiService'
 import {useModalStore} from './modal'
@@ -67,6 +67,8 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         modal.handleClickModal()
     }
 
+    const noPeliculas = computed(() => peliculas.value.length === 0)
+
     return {
         listas,
         busqueda,
@@ -74,6 +76,7 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         obtenerPeliculas,
         peliculas,
         seleccionarPeliculas,
-        pelicula
+        pelicula,
+        noPeliculas
     }
 })
