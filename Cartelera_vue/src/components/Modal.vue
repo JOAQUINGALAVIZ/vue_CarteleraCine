@@ -1,11 +1,14 @@
 <script setup>
     import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
     import {usePeliculasStore} from '../stores/peliculas' 
-
     import {useModalStore} from  '../stores/modal'
+    import {useFavoritosStore} from  '../stores/favoritos'
+
 
     const modal = useModalStore()
     const peliculas = usePeliculasStore()
+    const favoritos = useFavoritosStore()
+    
 
     const getPosterURL = (posterPath) => {
       const baseURL = "https://image.tmdb.org/t/p/";
@@ -84,6 +87,16 @@
                   >
                     Cerrar
                   </button>
+
+                  <button
+                    type="button"
+                    class="w-full rounded bg-red-700 p-3 font-bold uppercase text-white shadow hover:bg-red-900"
+                    @click="favoritos.handleClickFavorito"
+                  >
+
+                      Agregar a Favoritos
+                  </button>
+
                 </div> 
               </DialogPanel>
             </TransitionChild>
