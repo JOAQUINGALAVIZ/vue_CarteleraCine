@@ -10,6 +10,9 @@ export default {
     buscarPeliculas({nombre}){
         console.log(nombre);
         return api(`/search/movie?query=${nombre}`)
-    } 
+    },
+    buscarPelicula(id){
+        return api(`/movie/${id}`)
+    }
 }
 

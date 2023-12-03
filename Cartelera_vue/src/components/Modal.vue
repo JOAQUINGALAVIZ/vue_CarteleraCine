@@ -1,10 +1,11 @@
 <script setup>
     import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-
+    import {usePeliculasStore} from '../stores/peliculas' 
 
     import {useModalStore} from  '../stores/modal'
 
     const modal = useModalStore()
+    const peliculas = usePeliculasStore()
 
 </script>
 

@@ -3,6 +3,8 @@ import {defineStore} from  'pinia'
 import apiService from '../services/apiService'
 
 
+
+
 export const usePeliculasStore = defineStore('peliculas', () => {
 
 
@@ -57,12 +59,17 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         peliculas.value = results
     }
 
+    async function seleccionarPeliculas(id){
+        const data = await apiService.buscarPelicula(id)
+        console.log(data)
+    }
 
     return {
         listas,
         busqueda,
         obtenerListas,
         obtenerPeliculas,
-        peliculas
+        peliculas,
+        seleccionarPeliculas
     }
 })

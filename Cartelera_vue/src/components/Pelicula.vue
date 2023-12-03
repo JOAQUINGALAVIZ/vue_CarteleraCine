@@ -1,8 +1,10 @@
 <script setup>
 import { defineProps } from 'vue';
 import {useModalStore} from "@/stores/modal";
+import {usePeliculasStore} from '../stores/peliculas'
 
 const modal = useModalStore()
+const peliculas = usePeliculasStore()
 
 defineProps(['pelicula']);
 
@@ -27,7 +29,7 @@ const getPosterURL = (posterPath) => {
       <button
         type="button"
         class="bg-red-700 mt-5 w-full p-3 font-bold text-white text-lg hover:bg-red-900"
-        @click="modal.handleClickModal()"
+        @click="peliculas.seleccionarPeliculas(pelicula.id)"
       >
         Ver Sipnosis
       </button>
