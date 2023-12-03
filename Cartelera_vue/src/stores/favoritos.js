@@ -2,11 +2,14 @@ import {ref, watch, onMounted, computed } from 'vue'
 import { defineStore } from "pinia";
 import {usePeliculasStore} from './peliculas'
 import {useModalStore} from './modal'
+import {useNotificacionStore} from './notificaciones'
 
 export const useFavoritosStore = defineStore('favoritos', () => {
 
     const peliculas  = usePeliculasStore()
     const modal  = useModalStore()
+    const notificaciones = useNotificacionStore()
+
     const favoritos = ref([])
 
     onMounted(() => {
@@ -34,6 +37,9 @@ export const useFavoritosStore = defineStore('favoritos', () => {
 
     function agregarFavorito() {
         favoritos.value.push(peliculas.pelicula)
+
+        notificaciones.mostrar = true
+        notificaciones.texto = 'Se agregó a favoritos'
     }
 
     function handleClickFavorito() {
