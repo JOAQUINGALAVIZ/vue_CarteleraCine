@@ -23,6 +23,19 @@
       return sipnosisPelicula
     }
 
+    const formatoGeneros = () => {
+      const generosPeliculaDiv = document.createElement('DIV')
+      console.log(peliculas.pelicula.genres[1].name);
+      for (let i = 0; i < peliculas.pelicula.genres.length; i++){
+        const generoPelicula = document.createElement('P')
+        generoPelicula.classList.add('text-lg')
+        generoPelicula.textContent = peliculas.pelicula.genres[i].name
+        generosPeliculaDiv.appendChild(generoPelicula)
+      }
+
+      return generosPeliculaDiv
+    }
+
 </script>
 
 <template>
@@ -52,6 +65,13 @@
                     </DialogTitle>
 
                     <div v-html="formatoSipnosis().outerHTML"></div>
+
+                    <DialogTitle as="h3" class="text-gray-900 text-4xl font-extrabold my-5">
+                      Géneros
+                    </DialogTitle>
+
+                    <div v-html="formatoGeneros().outerHTML"></div>
+
 
                   </div>
                 </div>
