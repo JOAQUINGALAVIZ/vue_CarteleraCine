@@ -10,13 +10,13 @@
 
 
   const handleSubmit = () => {
-    // TODO: Validar
-    if (titulo.value === ''){
-      peliculas.obtenerListas()
-    } else{
-      peliculas.obtenerPeliculas()
-    }
+  if (peliculas.busqueda.nombre === '') {
+    peliculas.obtenerListas()
+  } else {
+    peliculas.obtenerPeliculas()
   }
+}
+
 
 </script>
 
