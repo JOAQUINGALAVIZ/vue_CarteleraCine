@@ -1,10 +1,12 @@
 <script setup>
+    import {ref, onMounted, watch} from "vue";
     import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
     import {usePeliculasStore} from '../stores/peliculas' 
     import {useModalStore} from  '../stores/modal'
     import {useFavoritosStore} from  '../stores/favoritos'
 
 
+    const videoKey = ref('')
     const modal = useModalStore()
     const peliculas = usePeliculasStore()
     const favoritos = useFavoritosStore()
@@ -14,6 +16,18 @@
       const baseURL = "https://image.tmdb.org/t/p/";
       return posterPath ? baseURL + "w500" + posterPath : null;
     };
+
+    const getVideoURL = () => {
+      console.log(videoKey);
+      const baseURL = "https://www.youtube.com/embed/";
+      return videoKey.value ? baseURL + videoKey.value : null;
+    };
+
+    onMounted(() => {
+      watch(() => peliculas.videoPelicula, (nuevoValor) => {
+        videoKey.value = nuevoValor
+      })
+    })
 
     const formatoSipnosis = () => {
       const sipnosisPelicula = document.createElement('DIV')
@@ -76,6 +90,19 @@
 
                     <div v-html="formatoGeneros().outerHTML"></div>
 
+                    <DialogTitle as="h3" class="text-gray-900 text-4xl font-extrabold my-5">
+                      Trailer
+                    </DialogTitle>
+
+                    <div>
+                      <iframe
+                          width=100%
+                          height="315"
+                          :src="getVideoURL()"
+                          title="Trailer"
+                          allowfullscreen
+                      ></iframe>
+                    </div>
 
                   </div>
                 </div>

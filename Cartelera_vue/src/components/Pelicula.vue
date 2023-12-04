@@ -12,15 +12,18 @@ const getPosterURL = (posterPath) => {
   const baseURL = "https://image.tmdb.org/t/p/";
   return posterPath ? baseURL + "w500" + posterPath : null;
 };
+
 </script>
 
 <template>
   <div class="border shadow-lg">
     <div class="overflow-hidden">
       <img
-          class="hover:scale-125 transition-transform hover:rotate-2"
+          class="hover:scale-125 transition-transform hover:rotate-2 mx-auto w-100"
+          style="max-height: 42rem; width: 100%"
           :src="getPosterURL(pelicula.poster_path)"
           :alt="'Poster de ' + pelicula.title"
+
       />
     </div>
 
@@ -29,7 +32,7 @@ const getPosterURL = (posterPath) => {
       <button
         type="button"
         class="bg-red-700 mt-5 w-full p-3 font-bold text-white text-lg hover:bg-red-900"
-        @click="peliculas.seleccionarPeliculas(pelicula.id)"
+        @click="peliculas.buscadorDePeliculas(pelicula.id)"
       >
         Ver Sipnosis
       </button>

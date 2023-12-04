@@ -1,4 +1,4 @@
-import {ref, reactive, onMounted, computed} from 'vue'
+import {ref, reactive, onMounted, computed, guardReactiveProps} from 'vue'
 import {defineStore} from  'pinia'
 import apiService from '../services/apiService'
 import {useModalStore} from './modal'
@@ -16,6 +16,8 @@ export const usePeliculasStore = defineStore('peliculas', () => {
     })
 
     const pelicula = ref({})
+    let videoPelicula = ref('')
+
 
     onMounted(async function (){
         listas.value = [
@@ -60,11 +62,24 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         peliculas.value = results
     }
 
+    function buscadorDePeliculas(id){
+        seleccionarPeliculas(id)
+        videosPeliculas(id)
+    }
+
     async function seleccionarPeliculas(id){
         const data = await apiService.buscarPelicula(id)
         pelicula.value = data.data
 
         modal.handleClickModal()
+    }
+
+    async function videosPeliculas(id){
+        const data = await apiService.buscarVideosPeliculas(id)
+        let videoKey = ''
+        videoPelicula.value = data.data.results[0].key;
+        console.log(videoPelicula);
+        console.log('Si se ejecuta la funcion videos')
     }
 
     const noPeliculas = computed(() => peliculas.value.length === 0)
@@ -75,7 +90,8 @@ export const usePeliculasStore = defineStore('peliculas', () => {
         obtenerListas,
         obtenerPeliculas,
         peliculas,
-        seleccionarPeliculas,
+        buscadorDePeliculas,
+        videoPelicula,
         pelicula,
         noPeliculas
     }
