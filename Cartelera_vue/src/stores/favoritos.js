@@ -33,18 +33,16 @@ export const useFavoritosStore = defineStore('favoritos', () => {
 
     function eliminarFavorito() {
         favoritos.value = favoritos.value.filter( favorito => favorito.id !== peliculas.pelicula.id )
+
+        notificaciones.mostrar = true
+        notificaciones.texto = 'Eliminado de Favoritos'
     }
 
     function agregarFavorito() {
         favoritos.value.push(peliculas.pelicula)
 
         notificaciones.mostrar = true
-        notificaciones.texto = 'Se agregó a favoritos'
-
-
-        setTimeout(() => {
-           notificaciones.$reset() 
-        }, 3000)
+        notificaciones.texto = 'Se agregó a Favoritos'
     }
 
     function handleClickFavorito() {
